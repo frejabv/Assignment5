@@ -2,16 +2,16 @@
 
 namespace GildedRose.Console
 {
-    class Program
+    public class Program
     {
-        IList<Item> Items;
-        static void Main(string[] args)
+        public IList<Item> Items;
+        public static void Main(string[] args)
         {
             System.Console.WriteLine("OMGHAI!");
 
             var app = new Program()
-                          {
-                              Items = new List<Item>
+            {
+                Items = new List<Item>
                                           {
                                               new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
                                               new Item {Name = "Aged Brie", SellIn = 2, Quality = 0},
@@ -26,7 +26,7 @@ namespace GildedRose.Console
                                               new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
                                           }
 
-                          };
+            };
 
             app.UpdateQuality();
 
@@ -44,14 +44,17 @@ namespace GildedRose.Console
                     {
                         if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
                         {
+                            //it is not brie, backstage pass or sulfuras. 
                             Items[i].Quality = Items[i].Quality - 1;
                         }
                     }
                 }
                 else
                 {
+                    //the name is either brie or backstage pass
                     if (Items[i].Quality < 50)
                     {
+                        //sulfuras never goes in here
                         Items[i].Quality = Items[i].Quality + 1;
 
                         if (Items[i].Name == "Backstage passes to a TAFKAL80ETC concert")
@@ -77,9 +80,11 @@ namespace GildedRose.Console
 
                 if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
                 {
+                    //the name is not sulfuras
                     Items[i].SellIn = Items[i].SellIn - 1;
                 }
 
+                //if sellin is negative
                 if (Items[i].SellIn < 0)
                 {
                     if (Items[i].Name != "Aged Brie")
@@ -90,17 +95,20 @@ namespace GildedRose.Console
                             {
                                 if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
                                 {
+                                    //it's not brie, backstage pass or sulfuras
                                     Items[i].Quality = Items[i].Quality - 1;
                                 }
                             }
                         }
                         else
                         {
+                            //it's a backstage pass
                             Items[i].Quality = Items[i].Quality - Items[i].Quality;
                         }
                     }
                     else
                     {
+                        //it's aged brie
                         if (Items[i].Quality < 50)
                         {
                             Items[i].Quality = Items[i].Quality + 1;
