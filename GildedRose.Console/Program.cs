@@ -118,15 +118,103 @@ namespace GildedRose.Console
             }
         }
 
+        public void UpdateQuality2()
+        {
+            for (var i = 0; i < Items.Count; i++)
+            {
+                //=======================================================//
+                //Sulfuras handling
+                //nothing happens
+
+                //=======================================================//
+                //Brie handling
+                //the name is either brie or backstage pass
+                if (Items[i].Quality < 50)
+                {
+                    //sulfuras never goes in here
+                    Items[i].Quality = Items[i].Quality + 1;
+                }
+                //decrease sellin
+                Items[i].SellIn = Items[i].SellIn - 1;
+
+                if (Items[i].SellIn < 0)
+                {
+                    //it's aged brie
+                    if (Items[i].Quality < 50)
+                    {
+                        Items[i].Quality = Items[i].Quality + 1;
+                    }
+                }
+
+                //=======================================================//
+                //Backstage handling
+                if (Items[i].Quality < 50)
+                {
+                    //sulfuras never goes in here
+                    Items[i].Quality = Items[i].Quality + 1;
+
+                    if (Items[i].Name == "Backstage passes to a TAFKAL80ETC concert")
+                    {
+                        if (Items[i].SellIn < 11)
+                        {
+                            if (Items[i].Quality < 50)
+                            {
+                                Items[i].Quality = Items[i].Quality + 1;
+                            }
+                        }
+
+                        if (Items[i].SellIn < 6)
+                        {
+                            if (Items[i].Quality < 50)
+                            {
+                                Items[i].Quality = Items[i].Quality + 1;
+                            }
+                        }
+                    }
+                }
+                //decrease sellin
+                Items[i].SellIn = Items[i].SellIn - 1;
+                //if sellin is negative
+                if (Items[i].SellIn < 0)
+                {
+                    {
+                        //it's a backstage pass
+                        Items[i].Quality = Items[i].Quality - Items[i].Quality;
+                    }
+                }
+
+                //=======================================================//
+                //normal items
+                if (Items[i].Quality > 0)
+                {
+                    Items[i].Quality = Items[i].Quality - 1;
+                }
+                //decrease sellin
+                Items[i].SellIn = Items[i].SellIn - 1;
+                //if sellin is negative
+                if (Items[i].SellIn < 0)
+                {
+                    if (Items[i].Quality > 0)
+                    {
+                        //it's not brie, backstage pass or sulfuras
+                        Items[i].Quality = Items[i].Quality - 1;
+                    }
+                }
+
+            }
+        }
+
     }
 
-    public class Item
+    public class Item : IUpdateable
     {
         public string Name { get; set; }
 
         public int SellIn { get; set; }
 
         public int Quality { get; set; }
+
+        public virtual void UpdateItem() { }
     }
 
 }

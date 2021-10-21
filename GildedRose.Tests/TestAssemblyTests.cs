@@ -25,8 +25,7 @@ namespace GildedRose.Tests
         [InlineData("Backstage passes to a TAFKAL80ETC concert", 5, 49, "Backstage passes to a TAFKAL80ETC concert", 4, 50)]
         [InlineData("Backstage passes to a TAFKAL80ETC concert", 5, 50, "Backstage passes to a TAFKAL80ETC concert", 4, 50)]
         [InlineData("Backstage passes to a TAFKAL80ETC concert", -1, 50, "Backstage passes to a TAFKAL80ETC concert", (-2), 0)]
-
-        //other items
+        //Other items
         [InlineData("+5 Dexterity Vest", 10, 20, "+5 Dexterity Vest", 9, 19)]
         [InlineData("+5 Dexterity Vest", -1, 20, "+5 Dexterity Vest", -2, 18)]
         [InlineData("+5 Dexterity Vest", -1, 0, "+5 Dexterity Vest", -2, 0)]
