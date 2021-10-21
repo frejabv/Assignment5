@@ -48,6 +48,6 @@ namespace GildedRose.Tests
             Assert.Equal(expectedQuality, p.Items[0].Quality);
         }
 
-        https://github.com/danielpalme/ReportGenerator
+        //https://github.com/danielpalme/ReportGenerator
     }
 }

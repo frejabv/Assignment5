@@ -2,7 +2,7 @@ using System;
 
 namespace GildedRose.Console
 {
-    public class Aging : Item
+    public class AgingItem : Item
     {
         public override void UpdateItem()
         {

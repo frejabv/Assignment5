@@ -128,33 +128,34 @@ namespace GildedRose.Console
 
                 //=======================================================//
                 //Brie handling
-                //the name is either brie or backstage pass
-                if (Items[i].Quality < 50)
+                if (Items[i].Name != "Aged Brie")
                 {
-                    //sulfuras never goes in here
-                    Items[i].Quality = Items[i].Quality + 1;
-                }
-                //decrease sellin
-                Items[i].SellIn = Items[i].SellIn - 1;
-
-                if (Items[i].SellIn < 0)
-                {
-                    //it's aged brie
                     if (Items[i].Quality < 50)
                     {
+                        //sulfuras never goes in here
                         Items[i].Quality = Items[i].Quality + 1;
+                    }
+                    //decrease sellin
+                    Items[i].SellIn = Items[i].SellIn - 1;
+
+                    if (Items[i].SellIn < 0)
+                    {
+                        //it's aged brie
+                        if (Items[i].Quality < 50)
+                        {
+                            Items[i].Quality = Items[i].Quality + 1;
+                        }
                     }
                 }
 
                 //=======================================================//
                 //Backstage handling
-                if (Items[i].Quality < 50)
+                if (Items[i].Name == "Backstage passes to a TAFKAL80ETC concert")
                 {
-                    //sulfuras never goes in here
-                    Items[i].Quality = Items[i].Quality + 1;
-
-                    if (Items[i].Name == "Backstage passes to a TAFKAL80ETC concert")
+                    if (Items[i].Quality < 50)
                     {
+                        //sulfuras never goes in here
+                        Items[i].Quality = Items[i].Quality + 1;
                         if (Items[i].SellIn < 11)
                         {
                             if (Items[i].Quality < 50)
@@ -171,15 +172,15 @@ namespace GildedRose.Console
                             }
                         }
                     }
-                }
-                //decrease sellin
-                Items[i].SellIn = Items[i].SellIn - 1;
-                //if sellin is negative
-                if (Items[i].SellIn < 0)
-                {
+                    //decrease sellin
+                    Items[i].SellIn = Items[i].SellIn - 1;
+                    //if sellin is negative
+                    if (Items[i].SellIn < 0)
                     {
-                        //it's a backstage pass
-                        Items[i].Quality = Items[i].Quality - Items[i].Quality;
+                        {
+                            //it's a backstage pass
+                            Items[i].Quality = Items[i].Quality - Items[i].Quality;
+                        }
                     }
                 }
 
