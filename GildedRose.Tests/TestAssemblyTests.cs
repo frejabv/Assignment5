@@ -48,5 +48,7 @@ namespace GildedRose.Tests
             Assert.Equal(expectedSellin, p.Items[0].SellIn);
             Assert.Equal(expectedQuality, p.Items[0].Quality);
         }
+
+        https://github.com/danielpalme/ReportGenerator
     }
 }
