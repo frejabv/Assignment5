@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace GildedRose.Console
+namespace GildedRose
 {
-    public class BackstagePass : Item
+    public class LegendaryItem : Item
     {
         public override void UpdateItem()
         {
@@ -11,4 +11,3 @@ namespace GildedRose.Console
         }
     }
 }
-
