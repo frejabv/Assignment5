@@ -25,6 +25,12 @@ namespace GildedRose.Tests
         [InlineData(Value.Backstage, "Backstage passes to a TAFKAL80ETC concert", 5, 49, "Backstage passes to a TAFKAL80ETC concert", 4, 50)]
         [InlineData(Value.Backstage, "Backstage passes to a TAFKAL80ETC concert", 5, 50, "Backstage passes to a TAFKAL80ETC concert", 4, 50)]
         [InlineData(Value.Backstage, "Backstage passes to a TAFKAL80ETC concert", -1, 50, "Backstage passes to a TAFKAL80ETC concert", (-2), 0)]
+        //Conjured items
+        [InlineData(Value.Conjured, "Conjured Mana Cake", 3, 6, "Conjured Mana Cake", 2, 4)]
+        [InlineData(Value.Conjured, "Conjured Mana Cake", -1, 6, "Conjured Mana Cake", (-2), 2)]
+        [InlineData(Value.Conjured, "Conjured Mana Cake", -1, 0, "Conjured Mana Cake", (-2), 0)]
+        [InlineData(Value.Conjured, "Conjured Mana Cake", -1, 2, "Conjured Mana Cake", (-2), 0)]
+        [InlineData(Value.Conjured, "Conjured Mana Cake", -1, 3, "Conjured Mana Cake", (-2), -1)]
         //Other items
         [InlineData(Value.Normal, "+5 Dexterity Vest", 10, 20, "+5 Dexterity Vest", 9, 19)]
         [InlineData(Value.Normal, "+5 Dexterity Vest", -1, 20, "+5 Dexterity Vest", -2, 18)]
