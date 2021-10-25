@@ -25,11 +25,16 @@ namespace GildedRose.Tests
         [InlineData(Value.Backstage, "Backstage passes to a TAFKAL80ETC concert", 5, 49, "Backstage passes to a TAFKAL80ETC concert", 4, 50)]
         [InlineData(Value.Backstage, "Backstage passes to a TAFKAL80ETC concert", 5, 50, "Backstage passes to a TAFKAL80ETC concert", 4, 50)]
         [InlineData(Value.Backstage, "Backstage passes to a TAFKAL80ETC concert", -1, 50, "Backstage passes to a TAFKAL80ETC concert", (-2), 0)]
-        //Other items
+        //Normal items
         [InlineData(Value.Normal, "+5 Dexterity Vest", 10, 20, "+5 Dexterity Vest", 9, 19)]
         [InlineData(Value.Normal, "+5 Dexterity Vest", -1, 20, "+5 Dexterity Vest", -2, 18)]
         [InlineData(Value.Normal, "+5 Dexterity Vest", -1, 0, "+5 Dexterity Vest", -2, 0)]
         [InlineData(Value.Normal, "+5 Dexterity Vest", 1, 0, "+5 Dexterity Vest", 0, 0)]
+        //Conjured items
+        [InlineData(Value.Conjured, "Conjured Mana Cake", 10, 20, "Conjured Mana Cake", 9, 18)]
+        [InlineData(Value.Conjured, "Conjured Mana Cake", -1, 20, "Conjured Mana Cake", -2, 16)]
+        [InlineData(Value.Conjured, "Conjured Mana Cake", -1, 0, "Conjured Mana Cake", -2, 0)]
+        [InlineData(Value.Conjured, "Conjured Mana Cake", 1, 0, "Conjured Mana Cake", 0, 0)]
 
         public void UpdateQuality(Value value, string name, int sellin, int quality, string expectedName, int expectedSellin, int expectedQuality)
         {
